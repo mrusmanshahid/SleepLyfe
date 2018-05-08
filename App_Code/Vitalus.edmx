@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="vitalusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="logins">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="75" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Questionnares">
+          <Key>
+            <PropertyRef Name="Qid" />
+          </Key>
+          <Property Name="Qid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login_id" Type="int" />
+          <Property Name="Firstname" Type="varchar(max)" />
+          <Property Name="Middlename" Type="varchar(max)" />
+          <Property Name="Lastname" Type="varchar(max)" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="height_feet" Type="int" />
+          <Property Name="height_inches" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="varchar(max)" />
+          <Property Name="DateofBirth" Type="varchar(max)" />
+          <Property Name="HighBloodPressure" Type="varchar(max)" />
+          <Property Name="RestLessSyndrome" Type="varchar(max)" />
+          <Property Name="Narcolepsy" Type="varchar(max)" />
+          <Property Name="HeartDisease" Type="varchar(max)" />
+          <Property Name="SleepApnea" Type="varchar(max)" />
+          <Property Name="Depression" Type="varchar(max)" />
+          <Property Name="Stroke" Type="varchar(max)" />
+          <Property Name="AMHeadaches" Type="varchar(max)" />
+          <Property Name="Diabetes" Type="varchar(max)" />
+          <Property Name="Insomnia" Type="varchar(max)" />
+          <Property Name="SittingandReading" Type="int" />
+          <Property Name="WatchingTV" Type="int" />
+          <Property Name="Sittinginactive" Type="int" />
+          <Property Name="AsPassenger" Type="int" />
+          <Property Name="LyingDown" Type="int" />
+          <Property Name="SittingTalking" Type="int" />
+          <Property Name="SittingQuietly" Type="int" />
+          <Property Name="InCar" Type="int" />
+          <Property Name="DifficultyFallingaseelp" Type="varchar(max)" />
+          <Property Name="DifficultyStayingaseelp" Type="varchar(max)" />
+          <Property Name="ProblemWaking" Type="varchar(max)" />
+          <Property Name="SleepProblem" Type="varchar(max)" />
+          <Property Name="DrinkAlcohol" Type="varchar(max)" />
+          <Property Name="Beverages" Type="varchar(max)" />
+          <Property Name="LegsAtNight" Type="varchar(max)" />
+          <Property Name="Vivid" Type="varchar(max)" />
+          <Property Name="Snored" Type="varchar(max)" />
+          <Property Name="Choking" Type="varchar(max)" />
+          <Property Name="StopBreathing" Type="varchar(max)" />
+          <Property Name="Medication" Type="varchar(max)" />
+          <Property Name="OvertheCounter" Type="varchar(max)" />
+          <Property Name="Ambien" Type="varchar(max)" />
+          <Property Name="Rozerem" Type="varchar(max)" />
+          <Property Name="Intermezzo" Type="varchar(max)" />
+          <Property Name="NarcoticForPain" Type="varchar(max)" />
+          <Property Name="HeartMedication" Type="varchar(max)" />
+          <Property Name="Antihistamines" Type="varchar(max)" />
+          <Property Name="Lunesta" Type="varchar(max)" />
+          <Property Name="Sonata" Type="varchar(max)" />
+          <Property Name="Silenor" Type="varchar(max)" />
+          <Property Name="BloodMedication" Type="varchar(max)" />
+          <Property Name="AntiDepressant" Type="varchar(max)" />
+          <Property Name="Anitanxiety" Type="varchar(max)" />
+          <Property Name="Halcion" Type="varchar(max)" />
+          <Property Name="Restoril" Type="varchar(max)" />
+          <Property Name="Xanax" Type="varchar(max)" />
+          <Property Name="Steroid" Type="varchar(max)" />
+          <Property Name="Parkinson" Type="varchar(max)" />
+          <Property Name="Simulant" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Sleepdiaries">
+          <Key>
+            <PropertyRef Name="Diary_id" />
+          </Key>
+          <Property Name="Diary_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login_id" Type="int" Nullable="false" />
+          <Property Name="Night" Type="int" />
+          <Property Name="DateStart" Type="datetime" Nullable="false" />
+          <Property Name="Prescription" Type="varchar" MaxLength="20" />
+          <Property Name="beverages" Type="varchar" MaxLength="20" />
+          <Property Name="caffeinated" Type="varchar" MaxLength="20" />
+          <Property Name="lights" Type="time" Precision="7" />
+          <Property Name="sleephours" Type="int" />
+          <Property Name="sleepminutes" Type="int" />
+          <Property Name="wokeup" Type="varchar" MaxLength="20" />
+          <Property Name="totaltime" Type="varchar" MaxLength="20" />
+          <Property Name="turnofftime" Type="time" Precision="7" />
+          <Property Name="totalsleephours" Type="int" />
+          <Property Name="totalsleepmin" Type="int" />
+        </EntityType>
+        <Association Name="FK_Questionnares_logins">
+          <End Role="logins" Type="Self.logins" Multiplicity="0..1" />
+          <End Role="Questionnares" Type="Self.Questionnares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logins">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="Questionnares">
+              <PropertyRef Name="Login_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sleepdiaries_logins">
+          <End Role="logins" Type="Self.logins" Multiplicity="1" />
+          <End Role="Sleepdiaries" Type="Self.Sleepdiaries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="logins">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="Sleepdiaries">
+              <PropertyRef Name="Login_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vitalusModelStoreContainer">
+          <EntitySet Name="logins" EntityType="Self.logins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questionnares" EntityType="Self.Questionnares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sleepdiaries" EntityType="Self.Sleepdiaries" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Questionnares_logins" Association="Self.FK_Questionnares_logins">
+            <End Role="logins" EntitySet="logins" />
+            <End Role="Questionnares" EntitySet="Questionnares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sleepdiaries_logins" Association="Self.FK_Sleepdiaries_logins">
+            <End Role="logins" EntitySet="logins" />
+            <End Role="Sleepdiaries" EntitySet="Sleepdiaries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vitalusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="vitalusEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="logins" EntityType="vitalusModel.login" />
+          <EntitySet Name="Questionnares" EntityType="vitalusModel.Questionnare" />
+          <EntitySet Name="Sleepdiaries" EntityType="vitalusModel.Sleepdiary" />
+          <AssociationSet Name="FK_Questionnares_logins" Association="vitalusModel.FK_Questionnares_logins">
+            <End Role="login" EntitySet="logins" />
+            <End Role="Questionnare" EntitySet="Questionnares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sleepdiaries_logins" Association="vitalusModel.FK_Sleepdiaries_logins">
+            <End Role="login" EntitySet="logins" />
+            <End Role="Sleepdiary" EntitySet="Sleepdiaries" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Questionnares" Relationship="vitalusModel.FK_Questionnares_logins" FromRole="login" ToRole="Questionnare" />
+          <NavigationProperty Name="Sleepdiaries" Relationship="vitalusModel.FK_Sleepdiaries_logins" FromRole="login" ToRole="Sleepdiary" />
+        </EntityType>
+        <EntityType Name="Questionnare">
+          <Key>
+            <PropertyRef Name="Qid" />
+          </Key>
+          <Property Name="Qid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login_id" Type="Int32" />
+          <Property Name="Firstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Middlename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="height_feet" Type="Int32" />
+          <Property Name="height_inches" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateofBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HighBloodPressure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RestLessSyndrome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Narcolepsy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HeartDisease" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SleepApnea" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Depression" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Stroke" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AMHeadaches" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Diabetes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Insomnia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SittingandReading" Type="Int32" />
+          <Property Name="WatchingTV" Type="Int32" />
+          <Property Name="Sittinginactive" Type="Int32" />
+          <Property Name="AsPassenger" Type="Int32" />
+          <Property Name="LyingDown" Type="Int32" />
+          <Property Name="SittingTalking" Type="Int32" />
+          <Property Name="SittingQuietly" Type="Int32" />
+          <Property Name="InCar" Type="Int32" />
+          <Property Name="DifficultyFallingaseelp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DifficultyStayingaseelp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProblemWaking" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SleepProblem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DrinkAlcohol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Beverages" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LegsAtNight" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Vivid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Snored" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Choking" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StopBreathing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Medication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OvertheCounter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ambien" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rozerem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Intermezzo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NarcoticForPain" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HeartMedication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Antihistamines" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lunesta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sonata" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Silenor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BloodMedication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AntiDepressant" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Anitanxiety" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Halcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Restoril" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Xanax" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Steroid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Parkinson" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Simulant" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="vitalusModel.FK_Questionnares_logins" FromRole="Questionnare" ToRole="login" />
+        </EntityType>
+        <EntityType Name="Sleepdiary">
+          <Key>
+            <PropertyRef Name="Diary_id" />
+          </Key>
+          <Property Name="Diary_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login_id" Type="Int32" Nullable="false" />
+          <Property Name="Night" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prescription" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="beverages" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="caffeinated" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="lights" Type="Time" Precision="7" />
+          <Property Name="sleephours" Type="Int32" />
+          <Property Name="sleepminutes" Type="Int32" />
+          <Property Name="wokeup" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="totaltime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="turnofftime" Type="Time" Precision="7" />
+          <Property Name="totalsleephours" Type="Int32" />
+          <Property Name="totalsleepmin" Type="Int32" />
+          <NavigationProperty Name="login" Relationship="vitalusModel.FK_Sleepdiaries_logins" FromRole="Sleepdiary" ToRole="login" />
+        </EntityType>
+        <Association Name="FK_Questionnares_logins">
+          <End Type="vitalusModel.login" Role="login" Multiplicity="0..1" />
+          <End Type="vitalusModel.Questionnare" Role="Questionnare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="Questionnare">
+              <PropertyRef Name="Login_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sleepdiaries_logins">
+          <End Type="vitalusModel.login" Role="login" Multiplicity="1" />
+          <End Type="vitalusModel.Sleepdiary" Role="Sleepdiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="LoginID" />
+            </Principal>
+            <Dependent Role="Sleepdiary">
+              <PropertyRef Name="Login_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vitalusModelStoreContainer" CdmEntityContainer="vitalusEntities">
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="vitalusModel.login">
+              <MappingFragment StoreEntitySet="logins">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questionnares">
+            <EntityTypeMapping TypeName="vitalusModel.Questionnare">
+              <MappingFragment StoreEntitySet="Questionnares">
+                <ScalarProperty Name="Simulant" ColumnName="Simulant" />
+                <ScalarProperty Name="Parkinson" ColumnName="Parkinson" />
+                <ScalarProperty Name="Steroid" ColumnName="Steroid" />
+                <ScalarProperty Name="Xanax" ColumnName="Xanax" />
+                <ScalarProperty Name="Restoril" ColumnName="Restoril" />
+                <ScalarProperty Name="Halcion" ColumnName="Halcion" />
+                <ScalarProperty Name="Anitanxiety" ColumnName="Anitanxiety" />
+                <ScalarProperty Name="AntiDepressant" ColumnName="AntiDepressant" />
+                <ScalarProperty Name="BloodMedication" ColumnName="BloodMedication" />
+                <ScalarProperty Name="Silenor" ColumnName="Silenor" />
+                <ScalarProperty Name="Sonata" ColumnName="Sonata" />
+                <ScalarProperty Name="Lunesta" ColumnName="Lunesta" />
+                <ScalarProperty Name="Antihistamines" ColumnName="Antihistamines" />
+                <ScalarProperty Name="HeartMedication" ColumnName="HeartMedication" />
+                <ScalarProperty Name="NarcoticForPain" ColumnName="NarcoticForPain" />
+                <ScalarProperty Name="Intermezzo" ColumnName="Intermezzo" />
+                <ScalarProperty Name="Rozerem" ColumnName="Rozerem" />
+                <ScalarProperty Name="Ambien" ColumnName="Ambien" />
+                <ScalarProperty Name="OvertheCounter" ColumnName="OvertheCounter" />
+                <ScalarProperty Name="Medication" ColumnName="Medication" />
+                <ScalarProperty Name="StopBreathing" ColumnName="StopBreathing" />
+                <ScalarProperty Name="Choking" ColumnName="Choking" />
+                <ScalarProperty Name="Snored" ColumnName="Snored" />
+                <ScalarProperty Name="Vivid" ColumnName="Vivid" />
+                <ScalarProperty Name="LegsAtNight" ColumnName="LegsAtNight" />
+                <ScalarProperty Name="Beverages" ColumnName="Beverages" />
+                <ScalarProperty Name="DrinkAlcohol" ColumnName="DrinkAlcohol" />
+                <ScalarProperty Name="SleepProblem" ColumnName="SleepProblem" />
+                <ScalarProperty Name="ProblemWaking" ColumnName="ProblemWaking" />
+                <ScalarProperty Name="DifficultyStayingaseelp" ColumnName="DifficultyStayingaseelp" />
+                <ScalarProperty Name="DifficultyFallingaseelp" ColumnName="DifficultyFallingaseelp" />
+                <ScalarProperty Name="InCar" ColumnName="InCar" />
+                <ScalarProperty Name="SittingQuietly" ColumnName="SittingQuietly" />
+                <ScalarProperty Name="SittingTalking" ColumnName="SittingTalking" />
+                <ScalarProperty Name="LyingDown" ColumnName="LyingDown" />
+                <ScalarProperty Name="AsPassenger" ColumnName="AsPassenger" />
+                <ScalarProperty Name="Sittinginactive" ColumnName="Sittinginactive" />
+                <ScalarProperty Name="WatchingTV" ColumnName="WatchingTV" />
+                <ScalarProperty Name="SittingandReading" ColumnName="SittingandReading" />
+                <ScalarProperty Name="Insomnia" ColumnName="Insomnia" />
+                <ScalarProperty Name="Diabetes" ColumnName="Diabetes" />
+                <ScalarProperty Name="AMHeadaches" ColumnName="AMHeadaches" />
+                <ScalarProperty Name="Stroke" ColumnName="Stroke" />
+                <ScalarProperty Name="Depression" ColumnName="Depression" />
+                <ScalarProperty Name="SleepApnea" ColumnName="SleepApnea" />
+                <ScalarProperty Name="HeartDisease" ColumnName="HeartDisease" />
+                <ScalarProperty Name="Narcolepsy" ColumnName="Narcolepsy" />
+                <ScalarProperty Name="RestLessSyndrome" ColumnName="RestLessSyndrome" />
+                <ScalarProperty Name="HighBloodPressure" ColumnName="HighBloodPressure" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="height_inches" ColumnName="height_inches" />
+                <ScalarProperty Name="height_feet" ColumnName="height_feet" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Login_id" ColumnName="Login_id" />
+                <ScalarProperty Name="Qid" ColumnName="Qid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sleepdiaries">
+            <EntityTypeMapping TypeName="vitalusModel.Sleepdiary">
+              <MappingFragment StoreEntitySet="Sleepdiaries">
+                <ScalarProperty Name="totalsleepmin" ColumnName="totalsleepmin" />
+                <ScalarProperty Name="totalsleephours" ColumnName="totalsleephours" />
+                <ScalarProperty Name="turnofftime" ColumnName="turnofftime" />
+                <ScalarProperty Name="totaltime" ColumnName="totaltime" />
+                <ScalarProperty Name="wokeup" ColumnName="wokeup" />
+                <ScalarProperty Name="sleepminutes" ColumnName="sleepminutes" />
+                <ScalarProperty Name="sleephours" ColumnName="sleephours" />
+                <ScalarProperty Name="lights" ColumnName="lights" />
+                <ScalarProperty Name="caffeinated" ColumnName="caffeinated" />
+                <ScalarProperty Name="beverages" ColumnName="beverages" />
+                <ScalarProperty Name="Prescription" ColumnName="Prescription" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Night" ColumnName="Night" />
+                <ScalarProperty Name="Login_id" ColumnName="Login_id" />
+                <ScalarProperty Name="Diary_id" ColumnName="Diary_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
