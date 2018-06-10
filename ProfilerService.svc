@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ProfilerService" CodeBehind="~/App_Code/ProfilerService.cs" %>
