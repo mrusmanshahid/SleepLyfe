@@ -1,0 +1,334 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+    <title>Sleep Lyfe</title>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <%--<link href="/css/example.css" rel="stylesheet" />--%>
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <!-- Data picker -->
+    <script src="/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="/js/plugins/daterangepicker/daterangepicker.js"></script>
+
+    <link href="/css/plugins/chosen/chosen.css" rel="stylesheet" />
+
+    <link href="/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" />
+
+    <link href="/css/plugins/cropper/cropper.min.css" rel="stylesheet" />
+
+    <link href="/css/plugins/switchery/switchery.css" rel="stylesheet" />
+
+    <link href="/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet" />
+
+    <link href="/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet" />
+
+    <link href="/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+
+    <link href="/css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet" />
+
+    <link href="/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+
+    <link href="/css/plugins/clockpicker/clockpicker.css" rel="stylesheet" />
+
+    <link href="/css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+
+    <link href="/css/plugins/select2/select2.min.css" rel="stylesheet" />
+
+    <link href="/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+
+
+    <!--Sweet Alert-->
+    <link href="/css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!--End Sweet Alert-->
+
+    <!-- Mainly scripts -->
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <%--<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>--%>
+
+
+    <!-- Custom and plugin javascript -->
+    <script src="/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Mainly scripts -->
+    <script src="/js/jquery-2.1.1.js"></script>
+
+    <!-- Custom and plugin javascript -->
+
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/plugins/pace/pace.min.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Chosen -->
+    <script src="/js/plugins/chosen/chosen.jquery.js"></script>
+
+    <!-- JSKnob -->
+    <script src="/js/plugins/jsKnob/jquery.knob.js"></script>
+
+    <!-- Input Mask-->
+    <script src="/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+
+
+    <!-- Switchery -->
+    <script src="/js/plugins/switchery/switchery.js"></script>
+
+    <!-- IonRangeSlider -->
+    <script src="/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- MENU -->
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Image cropper -->
+    <script src="/js/plugins/cropper/cropper.min.js"></script>
+
+    <!-- Date range use moment.js same as full calendar plugin -->
+    <script src="/js/plugins/fullcalendar/moment.min.js"></script>
+
+    <!-- Date range picker -->
+    <script src="/js/plugins/daterangepicker/daterangepicker.js"></script>
+
+    <!-- Select2 -->
+    <script src="/js/plugins/select2/select2.full.min.js"></script>
+
+    <!-- TouchSpin -->
+    <script src="/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/jquerynumeric.js"></script>
+
+    <link href="/css/custom.css" rel="stylesheet" />
+
+    <!-- Color picker -->
+    <script src="/js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+    <!-- Clock picker -->
+    <script src="/js/plugins/clockpicker/clockpicker.js"></script>
+
+    <!-- Flot -->
+    <script src="/js/plugins/flot/jquery.flot.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.symbol.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.time.js"></script>
+    <script src="/js/plugins/d3/d3.min.js"></script>
+    <script src="/js/plugins/c3/c3.min.js"></script>
+    <link href="/css/plugins/c3/c3.min.css" rel="stylesheet" />
+    <script src="/js/plugins/chartJs/Chart.min.js"></script>
+
+    <script src="/js/jquery.canvasjs.min.js"></script>
+
+
+    <style>
+        em {
+            color: red;
+        }
+
+        .panel-body {
+            background-color: rgba(26, 179, 148, 0.08);
+        }
+
+        .form-group .btn {
+            margin-right: 4px;
+        }
+
+        .btn-default {
+            background-color: #f8ac59;
+            border-color: #f8ac59;
+            color: #FFFFFF;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px; /* for vertical scrollbars */
+            height: 12px; /* for horizontal scrollbars */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #597088;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form2" runat="server">
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <span>
+                                    <asp:Image ImageUrl="https://www.shareicon.net/download/2017/02/05/878221_user_512x512.png" CssClass="img-circle" runat="server" ID="imgUser" Style="height: 48px; width: 48px;" />
+                                </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="clear"><span class="block m-t-xs"><strong class="font-bold">
+                                        <label>Sleep Lyfe</label></strong>
+                                    </span><span class="text-muted text-xs block">
+                                        <label>Administrator</label></span></span></a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="/Pages/HRMS/ChangePassword.aspx">Change Password</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="logo-element">
+                                SLEEP
+                            </div>
+                        </li>
+                        <asp:Repeater ID="rptMenuItem" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <a href="<%#Eval("menuItemAddress")%>"><i class="fa fa-th-large"></i><span class="nav-label"><%#Eval("menuItemName")%></span></a>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+                    </ul>
+                </div>
+            </nav>
+
+
+
+            <div id="page-wrapper" class="gray-bg" style="overflow: scroll;">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Sleep Profiler</span>
+                            </li>
+                            <li></li>
+                            <li>
+                                <asp:LinkButton runat="server" ID="lgout" OnClick="lgout_Click"><span class="fa fa-sign-out"></span>Logout</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <br />
+                <asp:ScriptManager ID="scriptManager1" runat="server">
+                    <Services>
+                        <asp:ServiceReference Path="/ProfilerService.svc" />
+                    </Services>
+                </asp:ScriptManager>
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="col-lg-10">
+                    <div style="background-color: red" class=""></div>
+                </div>
+
+                <nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
+
+                    <div class="footer navbar-fixed-bottom">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <h3 class="timeWindow"></h3>
+                            </div>
+
+                            <div class="col-lg-8">
+                                <label class="label label-success lblSliderval" style="margin-left: 40%;">00:00:00</label>
+                                <div id="basic_slider" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <input type="button" value="Forward" class="btn pull-right btn-success" onclick="buildChart(true)" />
+                                <input type="button" value="Backward" class="btn pull-right btn-success" onclick="buildChart(false)" />
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+
+            </div>
+
+        </div>
+    </form>
+
+
+    <div id="waitProgressBar" class="col-xs-4 loaderBody">
+        <div class="widget lazur-bg p-lg text-center ">
+            <div class="sk-spinner sk-spinner-rotating-plane" style="background-color: white"></div>
+            <span>Please Wait While Loading..</span>
+        </div>
+    </div>
+
+    <div class="loader"></div>
+    <link href="/css/nouislider.css" rel="stylesheet" />
+    <!-- NouSlider -->
+    <script src="/js/nouislider.min.js"></script>
+    <script src="PagesJs/Constant.js"></script>
+
+    <script>
+        $('.footer').slideToggle();
+    </script>
+    <style>
+        .loaderBody {
+            position: fixed;
+            top: 40%;
+            left: 35%;
+            z-index: 99999;
+        }
+
+        .loader {
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            overflow: hidden;
+            opacity: 0.7;
+        }
+
+        .panel-body {
+            background-color: #e7eaee !important;
+        }
+    </style>
+
+</body>
+</html>
